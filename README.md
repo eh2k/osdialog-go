@@ -19,7 +19,7 @@ Save File:
 
 Open Directory:
 
-    directory, err := osdialog.ShowDirectoryFileDialog(".")
+    directory, err := osdialog.ShowOpenDirectoryDialog(".")
 
 # platform details
 * Linux: uses Gtk3 `sudo apt-get install -y libgtk-3-dev libcairo2-dev libpango1.0-dev`

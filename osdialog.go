@@ -63,7 +63,7 @@ func ShowSaveFileDialog(path string, filename string, filters string) (string, e
 	}
 }
 
-func ShowOpenDirictoryDialog(path string) (string, error){
+func ShowOpenDirectoryDialog(path string) (string, error){
 
 	p := C.CString(path)
 	defer C.free(unsafe.Pointer(p))
@@ -74,7 +74,7 @@ func ShowOpenDirictoryDialog(path string) (string, error){
 		defer C.free(unsafe.Pointer(selected))
 		return C.GoString(selected), nil
 	} else {
-		return "", errors.New("ShowSaveFileDialog canceled")
+		return "", errors.New("ShowOpenDirectoryDialog canceled")
 	}
 }
 

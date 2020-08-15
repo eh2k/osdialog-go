@@ -14,6 +14,6 @@ func main(){
 	
 	osdialog.ShowOpenFileDialog(".", "こんにちは", "Source:c,cpp,m;Header:h,hpp")
 	
-	osdialog.ShowOpenDirictoryDialog("/")
+	osdialog.ShowOpenDirectoryDialog("/")
 
 }
