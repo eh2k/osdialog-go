@@ -1,6 +1,7 @@
 package osdialog
 
 
+// #cgo CFLAGS: -w
 // #cgo linux pkg-config: gtk+-3.0
 // #cgo windows LDFLAGS: -lcomdlg32
 // #include <osdialog/osdialog.h>
