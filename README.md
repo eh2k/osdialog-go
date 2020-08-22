@@ -1,3 +1,6 @@
+![build](https://github.com/eh2k/osdialog-go/workflows/build/badge.svg)
+[![Go Report Card](https://goreportcard.com/badge/github.com/eh2k/osdialog-go)](https://goreportcard.com/report/github.com/eh2k/osdialog-go)
+
 # osdialog-go
 
 A Golang cross platform API for OS dialogs like file save, open, message boxes.
