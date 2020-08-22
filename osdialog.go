@@ -1,6 +1,5 @@
 package osdialog
 
-
 // #cgo CFLAGS: -w
 // #cgo linux pkg-config: gtk+-3.0
 // #cgo windows LDFLAGS: -lcomdlg32
@@ -16,7 +15,7 @@ import "C"
 import "unsafe"
 import "errors"
 
-func ShowOpenFileDialog(path string, filename string, filters string) (string, error){
+func ShowOpenFileDialog(path string, filename string, filters string) (string, error) {
 
 	f := C.CString(filters)
 	defer C.free(unsafe.Pointer(f))
@@ -28,7 +27,7 @@ func ShowOpenFileDialog(path string, filename string, filters string) (string, e
 	defer C.free(unsafe.Pointer(fn))
 
 	ff := C.osdialog_filters_parse(f)
-	defer C.osdialog_filters_free(ff);
+	defer C.osdialog_filters_free(ff)
 
 	selected := C.osdialog_file(C.OSDIALOG_OPEN, p, fn, ff)
 
@@ -40,7 +39,7 @@ func ShowOpenFileDialog(path string, filename string, filters string) (string, e
 	}
 }
 
-func ShowSaveFileDialog(path string, filename string, filters string) (string, error){
+func ShowSaveFileDialog(path string, filename string, filters string) (string, error) {
 
 	f := C.CString(filters)
 	defer C.free(unsafe.Pointer(f))
@@ -52,7 +51,7 @@ func ShowSaveFileDialog(path string, filename string, filters string) (string, e
 	defer C.free(unsafe.Pointer(fn))
 
 	ff := C.osdialog_filters_parse(f)
-	defer C.osdialog_filters_free(ff);
+	defer C.osdialog_filters_free(ff)
 
 	selected := C.osdialog_file(C.OSDIALOG_SAVE, p, fn, ff)
 
@@ -64,7 +63,7 @@ func ShowSaveFileDialog(path string, filename string, filters string) (string, e
 	}
 }
 
-func ShowOpenDirectoryDialog(path string) (string, error){
+func ShowOpenDirectoryDialog(path string) (string, error) {
 
 	p := C.CString(path)
 	defer C.free(unsafe.Pointer(p))
@@ -82,20 +81,20 @@ func ShowOpenDirectoryDialog(path string) (string, error){
 type Level int32
 
 const (
-    Info   Level = 0
+	Info    Level = 0
 	Warning Level = 1
-	Error Level = 2
+	Error   Level = 2
 )
 
 type Buttons int32
 
 const (
-	Ok Buttons = 0
+	Ok       Buttons = 0
 	OkCancel Buttons = 1
-	YesNo Buttons = 2
+	YesNo    Buttons = 2
 )
 
-func ShowMessageBox(level Level, buttons Buttons, message string ) bool{
+func ShowMessageBox(level Level, buttons Buttons, message string) bool {
 
 	m := C.CString(message)
 	defer C.free(unsafe.Pointer(m))
