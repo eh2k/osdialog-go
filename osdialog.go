@@ -5,7 +5,7 @@ package osdialog
 // #cgo windows LDFLAGS: -lcomdlg32
 // #cgo windows CFLAGS: -w
 // #cgo darwin LDFLAGS: -framework AppKit
-// #cgo darwin CFLAGS: -w -mmacosx-version-min=10.7
+// #cgo darwin CFLAGS: -w -x objective-c -mmacosx-version-min=10.7
 // #include <osdialog/osdialog.h>
 // #include <osdialog/osdialog.c>
 // #ifdef linux
