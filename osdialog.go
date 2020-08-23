@@ -1,8 +1,11 @@
 package osdialog
 
-// #cgo CFLAGS: -w
+// #cgo linux CFLAGS: -w
 // #cgo linux pkg-config: gtk+-3.0
 // #cgo windows LDFLAGS: -lcomdlg32
+// #cgo windows CFLAGS: -w
+// #cgo darwin LDFLAGS: -framework AppKit
+// #cgo darwin CFLAGS: -w -mmacosx-version-min=10.7
 // #include <osdialog/osdialog.h>
 // #include <osdialog/osdialog.c>
 // #ifdef linux
@@ -10,6 +13,9 @@ package osdialog
 // #endif
 // #ifdef WIN32
 // #include <osdialog/osdialog_win.c>
+// #endif
+// #ifdef __APPLE__
+// #include <osdialog/osdialog_mac.m>
 // #endif
 import "C"
 import "unsafe"
